@@ -20,8 +20,8 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+    <body >
+        {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
@@ -49,11 +49,20 @@
                     @endauth
                 </nav>
             @endif
-        </header>
-       <h1 class="text-6xl">Salam</h1>
-
-        @if (Route::has('login'))
+        </header> --}}
+        
+        {{-- @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
-        @endif
+        @endif --}}
+        <nav class="flex items-center justify-between h-24 top-0 p-4 w-full bg-stone-100 border-b static backdrop-blur-2xl border-0">
+            <img class="h-20 w-24" src="/img/download (25).jfif" alt="">
+            <button class="py-2 px-3 border bg-green-900 rounded-md font-sans text-white"><a>
+                Upload Video
+            </a></button>
+        </nav>
+        <div class="h-screen w-full flex">
+             <img class="w-full h-full relative" class="h-20 w-24" src="/img/images (37).jfif" alt="">
+             <h1 class="absolute top-10 left-10 text-white text-5xl">  Try With Us The Movies World!</h1>
+        </div>
     </body>
 </html>
