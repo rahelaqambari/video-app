@@ -54,7 +54,7 @@
         {{-- @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif --}}
-        <nav class="flex items-center justify-between h-24 top-0 p-4 w-full bg-stone-100 border-b static backdrop-blur-2xl border-0">
+        <nav class="flex items-center justify-between h-24 top-0 p-4 w-full bg-stone-100 border-b static backdrop-blur-2xl border-0 b">
             <img class="h-20 w-24" src="/img/download (25).jfif" alt="">
             <button class="py-2 px-3 border bg-green-900 rounded-md font-sans text-white"><a>
                 Upload Video
@@ -62,7 +62,7 @@
         </nav>
         <div class="h-screen w-full flex">
              <img class="w-full h-full relative" class="h-20 w-24" src="/img/images (37).jfif" alt="">
-             <h1 class="absolute top-10 left-10 text-white text-5xl">  Try With Us The Movies World!</h1>
+             <h1 class="absolute bottom-80  right-52 text-white text-5xl">  Try With Us The Movies World!</h1>
         </div>
     </body>
 </html>
