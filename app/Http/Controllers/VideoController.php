@@ -9,13 +9,17 @@ class VideoController extends Controller
 {
 
  public function index(){
-       $video =  Video::all();
-       return view('Video.home',compact('video'));
+       $see =  Video::all();
+       return view('Video.home',compact('see'));
     }
 
-    // public function show(string $id){
-          
-    // }
+    public function show(string $id){
+          $video = Video::findOrFail($id);
+
+          $video->increment('views');
+          $video->increment('rating',2);
+          return view('Video.home', compact('video'));
+    }
 
     public function create(Request $request){
         $video = new Video();
@@ -30,27 +34,6 @@ class VideoController extends Controller
         $video->user_id = $request->user_id;
         $video->video_path = $filepath;
         $video->save();
-        return redirect("/");
-        // $request->validate([
-        //     'title' => 'required',
-        //     'description' => 'nullable|string',
-        //      'video_path' => 'required|file|mimes:mp4,mov,avi,|max:51200',
-        //     'rating' => 'reqiure|integer|min:2',
-        //      'views' => 'required|integer',
-        //      'user_id' => 'required|integer',
-        // ]);
-        // $path = $request->file('video')->store('video','public');
-
-        // Video::create([
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-        //     'views' => $request->views,
-        //     'rating' => $request-> rating,
-        //     'video_path' => $path,
-        //     'user_id' => $request -> user_id,
-        //     // 'user_id' => auth()->id(),
-        // ]);
-        // return 
-        // response()->json('data inserted');
+        return redirect("video");
     }
 }

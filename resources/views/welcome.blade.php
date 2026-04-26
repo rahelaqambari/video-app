@@ -64,5 +64,17 @@
              <img class="w-full h-full relative" class="h-20 w-24" src="/img/images (37).jfif" alt="">
              <h1 class="absolute bottom-80  right-52 text-white text-5xl">  Try With Us The Movies World!</h1>
         </div>
+        <div>
+     {{-- @foreach ($video as $vid )
+        <div>
+            <h1>{{ $vid->title }}</h1>
+          <video controls width="320">
+          <source src="{{ asset('storage/'.$vid->video_path) }}"  type="video/mp4">
+        </video>
+            <a href="{{ asset('storage/'.$vid->description) }}" download="{{ asset('storage/'.$so->video) }}">Download </a>
+        </div>
+        
+        @endforeach --}}
+</div>
     </body>
 </html>
