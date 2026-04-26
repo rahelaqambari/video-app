@@ -21,60 +21,32 @@
         @endif
     </head>
     <body >
-        {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
-
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
-                        @endif
-                    @endauth
-                </nav>
-            @endif
-        </header> --}}
-        
-        {{-- @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif --}}
         <nav class="flex items-center justify-between h-24 top-0 p-4 w-full bg-stone-100 border-b static backdrop-blur-2xl border-0 b">
             <img class="h-20 w-24" src="/img/download (25).jfif" alt="">
-            <button class="py-2 px-3 border bg-green-900 rounded-md font-sans text-white"><a>
-                Upload Video
-            </a></button>
+            <button class="py-2 px-3 border bg-green-900 rounded-md font-sans text-white">
+                <a href="/video/add"> Upload Video </a>
+            </button>
         </nav>
-        <div class="h-screen w-full flex">
-             <img class="w-full h-full relative" class="h-20 w-24" src="/img/images (37).jfif" alt="">
-             <h1 class="absolute bottom-80  right-52 text-white text-5xl">  Try With Us The Movies World!</h1>
+        <div class="w-full h-[550px] flex">
+             <img class="w-full h-full relative" src="/img/download (24).jfif" alt="">
+             <h1 class="absolute font-serif bottom-80 right-96 text-white text-5xl">Welcome to My video world</h1>
+             <h1 class="absolute font-serif bottom-52  right-80 text-white text-5xl">Watch My moments come to life!</h1>
         </div>
-        <div>
-     {{-- @foreach ($video as $vid )
-        <div>
-            <h1>{{ $vid->title }}</h1>
+        <div class="w-full grid grid-cols-3">
+     @foreach ($video as $vid )
+        <div class=" bg-gray-100 p-5 ">
+            {{-- <h1>{{ $vid->title }}</h1> --}}
           <video controls width="320">
           <source src="{{ asset('storage/'.$vid->video_path) }}"  type="video/mp4">
         </video>
-            <a href="{{ asset('storage/'.$vid->description) }}" download="{{ asset('storage/'.$so->video) }}">Download </a>
+            {{-- <a href="{{ asset('storage/'.$vid->video_path) }}" download="{{ asset('storage/'.$vid->video_path) }}">Download </a> --}}
+           <div class="flex items-center justify-between">
+             <h1>Rating:  {{ $vid->rating }} </h1>
+            <h1>Views: {{ $vid->views }} </h1>
+           </div>
         </div>
         
-        @endforeach --}}
+        @endforeach
 </div>
     </body>
 </html>

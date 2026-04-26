@@ -9,8 +9,8 @@ class VideoController extends Controller
 {
 
  public function index(){
-       $see =  Video::all();
-       return view('Video.home',compact('see'));
+       $video =  Video::all();
+       return view('welcome',compact('video'));
     }
 
     public function show(string $id){
