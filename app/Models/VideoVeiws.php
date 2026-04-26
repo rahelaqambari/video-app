@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VideoViews extends Model
+class VideoVeiws extends Model
 {
     //
 }
