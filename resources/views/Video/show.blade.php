@@ -9,8 +9,8 @@
         @endif
     </head>
     <body>
-       <div>
-         <video id="videoplayer" controls width="320">
+       <div class="w-full flex flex-col items-center justify-center p-3">
+         <video class="h-96 w-7/12 " id="videoplayer" controls width="320">
           <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
         </video>
             <a href="{{ asset('storage/'.$video->video_path) }}" download="{{ asset('storage/'.$video->video_path) }}">Download </a>
