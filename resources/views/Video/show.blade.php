@@ -9,19 +9,27 @@
         @endif
     </head>
     <body>
-        <div class="h-fit w-full bg-[url('/img/download (20).jfif')] bg-stone-100 bg-cover flex flex-col  items-center justify-center">
-             <img class="w-full h-full relative" src="/img/images (36).jfif" alt="">
-            <h1 class="text-5xl text-white p-4 font-serif absolute top-12 left-96">Upload New Video</h1>
-<form enctype="multipart/form-data" action="{{ URL('video/insert') }}" method="POST" class="top-32 w-1/2 h-full p-10 rounded-lg flex absolute bg-transparent backdrop-blur-2xl flex-col gap-4">
-        @csrf
-            <input class="p-4 border rounded-md"  type="text"  name="title" placeholder=" Title" >
-            <input class="p-4 border rounded-md" type="text" name="description" id="description"  placeholder="description">
-            <input class="p-4 border rounded-md" type="text" name="rating" id="rating" placeholder="rating">
-            <input class="p-4 border rounded-md" type="text" name="views" id="views" placeholder="views">
-            <input class="p-4 border rounded-md" type="text" name="user_id" id="user_id" placeholder="User Id">
-            <input class="p-4 border rounded-md" type="file" name="video_path" id="video_path" placeholder="video_path">
-            <button class="text-whit rounded-md py-2 px-4" type="submit">Upload</button>
-    </form>
-    </div>
+       <div>
+         <video id="videoplayer" controls width="320">
+          <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
+        </video>
+            <a href="{{ asset('storage/'.$video->video_path) }}" download="{{ asset('storage/'.$video->video_path) }}">Download </a>
+           <div class="flex items-center justify-between">
+             <h1>Rating:  {{ $video->rating }} </h1>
+            <h1>Views: {{ $video->views }} </h1>
+       </div>
+       <script>
+         const video = document.getElementById('videoplayer');
+         video.addEventListener('play',function() {
+            fetch("{{ URL('video/play', $video->id) }}",{
+                method : 'POST',
+                headers: {
+                    'X-CSRF-TOKEN' : '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+         })
+       </script>
 </body>
 </html>

@@ -10,7 +10,7 @@ class VideoController extends Controller
 
  public function index(){
        $video =  Video::all();
-       return view('welcome',compact('video'));
+       return view('Video.home',compact('video'));
     }
 
     public function show(string $id){
@@ -18,10 +18,23 @@ class VideoController extends Controller
 
           $video->increment('views');
           $video->increment('rating',2);
-          return view('Video.home', compact('video'));
+          return view('Video.show', compact('video'));
     }
+    // play
+      public function play(string $id){
+          $video = Video::findOrFail($id);
+          $video->increment('rating',2);
+          return response()->json([
+            'rating' =>$video->rating
+          ]);
+    }
+    
 
     public function create(Request $request){
+        $request->validate([
+            'video_path'=> 'required|file|mimes:mp4,mov,avi',
+            'title' => 'required',
+        ]);
         $video = new Video();
         $filepath = null;
         if($request->hasFile('video_path')){
