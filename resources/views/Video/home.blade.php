@@ -9,9 +9,9 @@
         @endif
   </head>
  <body >
-  <nav class="flex items-center justify-between h-24 top-0 p-4 w-full bg-stone-100 border-b static backdrop-blur-2xl border-0 b">
+  <nav class="flex items-center justify-between h-24 p-4 w-full bg-black border-b border-white backdrop-blur-2xl border-0 b">
             <img class="h-20 w-24" src="/img/download (25).jfif" alt="">
-            <button class="py-2 px-3 border bg-green-900 rounded-md font-sans text-white">
+            <button class="py-2 px-3 border bg-white text-green-900 rounded-md font-sans">
                 <a href="/video/add"> Upload Video </a>
             </button>
         </nav>
@@ -20,7 +20,8 @@
              <h1 class="absolute font-serif bottom-80 right-96 text-white text-5xl">Welcome to My video world</h1>
              <h1 class="absolute font-serif bottom-52  right-80 text-white text-5xl">Watch My moments come to life!</h1>
         </div>
-        <div class="w-full h-screen bg-stone-100">
+        <div class="w-full h-screen">
+            {{-- <img class="w-full h-full " src="/img/images (38).jfif" alt=""> --}}
           <h1 class="text-5xl text-green-900 text-center font-serif pt-2">ALL VIDEOS</h1>
          <div class="w-full grid grid-cols-3 gap-4 p-4 ">
           @foreach ($video as $vid )

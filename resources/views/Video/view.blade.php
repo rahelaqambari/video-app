@@ -1,3 +1,6 @@
+<div>
+    <!-- Walk as if you are kissing the Earth with your feet. - Thich Nhat Hanh -->
+</div>
 <html>
     <head>
 @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -9,19 +12,37 @@
         @endif
     </head>
     <body>
-        <div class="h-screen w-full  bg-stone-100 bg-cover flex flex-col  items-center justify-center">
-             {{-- <img class="w-full h-full relative" src="/img/images (42).jfif" alt=""> --}}
-            <h1 class="text-5xl text-green-900 font-serif pt-5">Upload New Video</h1>
-<form enctype="multipart/form-data" action="{{ URL('video/insert') }}" method="POST" class="w-1/2 h-full p-10 rounded-lg flex bg-white backdrop-blur-2xl flex-col gap-4">
-        @csrf
-            <input class="p-4 border rounded-md"  type="text"  name="title" placeholder=" Title" >
-            <input class="p-4 border rounded-md" type="text" name="description" id="description"  placeholder="description">
-            <input class="p-4 border rounded-md" type="text" name="rating" id="rating" placeholder="rating">
-            <input class="p-4 border rounded-md" type="text" name="views" id="views" placeholder="views">
-            <input class="p-4 border rounded-md" type="text" name="user_id" id="user_id" placeholder="User Id">
-            <input class="p-4 border rounded-md" type="file" name="video_path" id="video_path" placeholder="video_path">
-            <button class="text-whit rounded-md py-2 px-4" type="submit">Upload</button>
-    </form>
-    </div>
+       <div class="w-full flex flex-col items-center justify-center p-3">
+         <video class="h-96 w-7/12 " id="videoplayer" controls width="320">
+          <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
+        </video>
+            <a href="{{ asset('storage/'.$video->video_path) }}" download="{{ asset('storage/'.$video->video_path) }}">Download </a>
+           <div class="flex items-center justify-between">
+             <h1>Rating:  {{ $video->rating }} </h1>
+            <h1>Views: {{ $video->views }} </h1>
+       </div>
+       <script>
+    let counted = false;
+
+    document.getElementById('myVideo').addEventListener('play', function () {
+        if (!counted) {
+            counted = true;
+
+            fetch('/video/view/{{ $video->id }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('rating').innerText = data.rating;
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
