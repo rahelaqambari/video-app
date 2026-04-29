@@ -12,6 +12,7 @@ class Video extends Model
         'description',
         'rating',
         'views',
+        'video_path',
         'user_id'
     ];
 }

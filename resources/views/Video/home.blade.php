@@ -33,7 +33,7 @@
             {{-- <a href="{{ asset('storage/'.$vid->video_path) }}" download="{{ asset('storage/'.$vid->video_path) }}">Download </a> --}}
             <div class="flex w-full items-center p-2 justify-between">
                <h1>Rating:  {{ $vid->rating }} </h1>
-            <h1>Views: {{ $vid->views }} </h1>
+           <h1>Views: {{ $vid->views }} </h1>
             </div>
            <a href=" {{ URL('video/show', $vid->id) }}">
               <h1 class="text-4xl font-serif text-green-900"> {{ $vid->title}}</h1>

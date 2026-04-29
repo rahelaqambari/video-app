@@ -9,14 +9,14 @@ class VideoController extends Controller
 {
 
  public function index(){
-       $video =  Video::all();
+       $video =  Video::orderBy('views','desc')->get();
        return view('Video.home',compact('video'));
     }
 
     public function show(string $id){
           $video = Video::findOrFail($id);
 
-          $video->increment('views');
+          $video->increment('views',1);
           $video->increment('rating',2);
           return view('Video.show', compact('video'));
     }
@@ -24,16 +24,25 @@ class VideoController extends Controller
       public function play(string $id){
           $video = Video::findOrFail($id);
           $video->increment('rating',2);
+          $video->increment('views',1);
           return response()->json([
-            'rating' =>$video->rating
+            'rating' =>$video->rating,
+            'views' =>$video->views
           ]);
     }
+    // high views
+    // public function highviews(){
+    //    $vid =  Video::all();
+    //    $vid->max('views');
+    //    return $vid;
+    // }
     
 
     public function create(Request $request){
         $request->validate([
             'video_path'=> 'required|file|mimes:mp4,mov,avi',
             'title' => 'required',
+            'description' => 'required|min:10',
         ]);
         $video = new Video();
         $filepath = null;
@@ -42,8 +51,6 @@ class VideoController extends Controller
         }
         $video->title = $request->title;
         $video->description = $request->description;
-        $video->user_id = $request->user_id;
-        $video->views = $request->views;
         $video->user_id = $request->user_id;
         $video->video_path = $filepath;
         $video->save();

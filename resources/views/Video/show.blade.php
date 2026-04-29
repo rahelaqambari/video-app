@@ -10,7 +10,7 @@
     </head>
     <body>
        <div class="w-full flex flex-col items-center justify-center p-3">
-         <video class="h-96 w-7/12 " id="videoplayer" controls width="320">
+         <video class="h-96 w-7/12 " id="play" controls width="320">
           <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
         </video>
             <a href="{{ asset('storage/'.$video->video_path) }}" download="{{ asset('storage/'.$video->video_path) }}">Download </a>
@@ -18,18 +18,20 @@
              <h1>Rating:  {{ $video->rating }} </h1>
             <h1>Views: {{ $video->views }} </h1>
        </div>
-       <script>
-         const video = document.getElementById('videoplayer');
-         video.addEventListener('play',function() {
-            fetch("{{ URL('video/play', $video->id) }}",{
-                method : 'POST',
-                headers: {
-                    'X-CSRF-TOKEN' : '{{ csrf_token() }}',
-                    'Content-Type': 'application/json'
-                }
-            });
-            
-         })
-       </script>
+      <script>
+const video = document.getElementById('play');
+
+video.addEventListener('play', function () {
+    console.log("PLAY WORKS"); // تست
+
+    fetch("{{ URL('video/play', $video->id) }}", {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    });
+});
+</script>
+
 </body>
 </html>
