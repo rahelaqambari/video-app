@@ -11,7 +11,7 @@
  <body >
   <nav class="flex items-center justify-between h-24 p-4 w-full bg-black border-b border-white backdrop-blur-2xl border-0 b">
             <img class="h-20 w-24" src="/img/download (25).jfif" alt="">
-            <button class="py-2 px-3 border bg-white text-green-900 rounded-md font-sans">
+            <button class="py-2 px-3 border bg-white text-black font-medium rounded-md font-sans">
                 <a href="/video/add"> Upload Video </a>
             </button>
         </nav>
@@ -20,8 +20,9 @@
              <h1 class="absolute font-serif bottom-80 right-96 text-white text-5xl">Welcome to My video world</h1>
              <h1 class="absolute font-serif bottom-52  right-80 text-white text-5xl">Watch My moments come to life!</h1>
         </div>
-        <div class="w-full max-h-screen h-full relative">
-            <img class="w-full h-full absolute" src="/img/images (40).jfif" alt="">
+        <div class="w-full bg-[URL(./img/images (40).jfif)] h-screen relative">
+            {{-- <img class="w-full h-full absolute" src="/img/images (40).jfif" alt=""> --}}
+            {{-- <img class="w-full h-full absolute top-" src="/img/images (40).jfif" alt=""> --}}
           <h1 class="text-5xl text-white text-center font-serif pt-4 absolute top-2 left-[550px]">ALL VIDEOS</h1>
          <div class="w-full grid grid-cols-3 gap-4 p-4 absolute top-24">
           @foreach ($video as $vid )
@@ -43,5 +44,17 @@
         @endforeach
 </div>
 </div>
+        <div class="w-full h-fit p-10 flex flex-col">
+            <div class="flex bg-white w-full border rounded-md">
+          <video class=" h-72" controls width="320">
+          <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
+        </video>
+         <h1>{{ $video->title }}</h1>
+            {{-- <a href="{{ asset('storage/'.$vid->video_path) }}" download="{{ asset('storage/'.$vid->video_path) }}">Download </a> --}}
+             <div class="flex w-full items-center p-2 justify-between">
+               <h1>Rating:  {{ $video->rating }} </h1>
+           <h1>Views: {{ $video->views }} </h1>
+            </div>
+        </div>
 </body>
 </html>

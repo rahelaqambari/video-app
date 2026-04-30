@@ -11,8 +11,8 @@
     <body>
         <div class="h-screen w-full  bg-stone-100 bg-cover flex flex-col  items-center justify-center">
              {{-- <img class="w-full h-full relative" src="/img/images (42).jfif" alt=""> --}}
-            <h1 class="text-5xl text-green-900 font-serif pt-5">Upload New Video</h1>
 <form enctype="multipart/form-data" action="{{ URL('video/insert') }}" method="POST" class="w-1/2 h-fit p-10 rounded-lg flex bg-white backdrop-blur-2xl flex-col gap-4">
+       <h1 class="text-5xl text-green-900 font-serif pt-5 text-center">Upload New Video</h1>
         @csrf
             <input class="p-4 border rounded-md"  type="text"  name="title" placeholder=" Title" >
             <input class="p-4 border rounded-md" type="text" name="description" id="description"  placeholder="description">
