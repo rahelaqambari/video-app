@@ -13,7 +13,7 @@ class VideoController extends Controller
        return view('Video.home',compact('video'));
     }
      public function moreview(){
-       $video =  Video::orderBy('views','desc')->get();
+       $video =  Video::all()->orderBy('views','desc')->get();
        return view('Video.home',compact('video'));
     }
 
