@@ -10,6 +10,7 @@ Route::get('/', function () {
 Route::prefix('video')->controller(VideoController::class)->group(function(){
     Route::view('/add',"Video.Insert");
     Route::get('/','index');
+    Route::get('/','moreview');
     // Route::get('/','highviews');
     Route::post('/show/{id}','show');
     // Route::post('/{id}/play','play');

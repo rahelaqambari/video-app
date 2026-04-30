@@ -20,10 +20,10 @@
              <h1 class="absolute font-serif bottom-80 right-96 text-white text-5xl">Welcome to My video world</h1>
              <h1 class="absolute font-serif bottom-52  right-80 text-white text-5xl">Watch My moments come to life!</h1>
         </div>
-        <div class="w-full h-screen">
-            {{-- <img class="w-full h-full " src="/img/images (38).jfif" alt=""> --}}
-          <h1 class="text-5xl text-green-900 text-center font-serif pt-2">ALL VIDEOS</h1>
-         <div class="w-full grid grid-cols-3 gap-4 p-4 ">
+        <div class="w-full max-h-screen h-full relative">
+            <img class="w-full h-full absolute" src="/img/images (40).jfif" alt="">
+          <h1 class="text-5xl text-white text-center font-serif pt-4 absolute top-2 left-[550px]">ALL VIDEOS</h1>
+         <div class="w-full grid grid-cols-3 gap-4 p-4 absolute top-24">
           @foreach ($video as $vid )
         <div class=" bg-white rounded-md shadow-2xl border p-4 flex flex-col items-center justify-center ">
             {{-- <h1>{{ $vid->title }}</h1> --}}
