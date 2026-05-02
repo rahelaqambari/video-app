@@ -9,7 +9,7 @@
         @endif
     </head>
     <body>
-       <div class="w-full flex flex-col items-center justify-center p-3">
+       <div class="w-full bg-linear-180 animate-pulse delay-300 from-gray-600 to-gray-100 via-gray-100 flex flex-col items-center justify-center p-3">
          <video class="h-96 w-7/12 " id="play" controls width="320">
           <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
         </video>
@@ -18,19 +18,28 @@
              <h1>Rating:  {{ $video->rating }} </h1>
             <h1>Views: {{ $video->views }} </h1>
        </div>
-      <script>
-const video = document.getElementById('play');
+       <script>
+    let counted = false;
 
-video.addEventListener('play', function () {
-    console.log("PLAY WORKS"); // تست
+    document.getElementById('myVideo').addEventListener('play', function () {
+        if (!counted) {
+            counted = true;
 
-    fetch("{{ URL('video/play', $video->id) }}", {
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            fetch('/video/view/{{ $video->id }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('rating').innerText = data.rating;
+                }
+            });
         }
     });
-});
 </script>
 
 </body>

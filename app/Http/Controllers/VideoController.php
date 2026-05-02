@@ -12,10 +12,10 @@ class VideoController extends Controller
        $video =  Video::all();
        return view('Video.home',compact('video'));
     }
-     public function moreview(){
-       $video =  Video::all()->orderBy('views','desc')->get();
-       return view('Video.home',compact('video'));
-    }
+    //  public function moreview(){
+    //    $rating =  Video::orderBy('views','desc')->get();
+    //    return view('Video.home',compact('rating'));
+    // }
 
     public function show(string $id){
           $video = Video::findOrFail($id);
@@ -34,12 +34,6 @@ class VideoController extends Controller
             'views' =>$video->views
           ]);
     }
-    // high views
-    // public function highviews(){
-    //    $vid =  Video::all();
-    //    $vid->max('views');
-    //    return $vid;
-    // }
     
 
     public function create(Request $request){
