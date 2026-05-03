@@ -9,19 +9,26 @@
         @endif
     </head>
     <body>
-       <div class="w-full bg-linear-180 animate-pulse delay-300 from-gray-600 to-gray-100 via-gray-100 flex flex-col items-center justify-center p-3">
-         <video class="h-96 w-7/12 " id="play" controls width="320">
+       <div class="w-full h-scree flex flex-col items-center justify-center p-3">
+         <video class="h-96 w-7/12 " id="myvideo" controls width="320">
           <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
         </video>
-            <a href="{{ asset('storage/'.$video->video_path) }}" download="{{ asset('storage/'.$video->video_path) }}">Download </a>
-           <div class="flex items-center justify-between">
-             <h1>Rating:  {{ $video->rating }} </h1>
+           <div class="w-7/12 mt-7 rounded-2xl shadow-2xl p-6 border-0 border-b-2 flex flex-col items-start ">
+             <div class="flex items-center justify-between w-full pt-2">
+                <h1 class="">Title:  {{ $video->title }} </h1>
+                <a class="text-xs font-xs text-blue-700" href="{{ asset('storage/'.$video->video_path) }}" download="{{ asset('storage/'.$video->video_path) }}">Download </a>
+             </div>
+              <div class="flex items-center justify-between w-full py-2">
+            <h1>Rating:{{ $video->rating }} </h1>
             <h1>Views: {{ $video->views }} </h1>
+            </div>
+             <h1>Descripyion:  {{ $video->description }} </h1>
+           </div>
        </div>
        <script>
     let counted = false;
 
-    document.getElementById('myVideo').addEventListener('play', function () {
+    document.getElementById('myvideo').addEventListener('play', function () {
         if (!counted) {
             counted = true;
 
@@ -43,4 +50,5 @@
 </script>
 
 </body>
+{{-- nimate-pulse delay-300  bg-linear-120 from-purple-900 to-gray-900 via-pink-900 --}}
 </html>

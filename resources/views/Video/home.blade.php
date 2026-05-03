@@ -20,51 +20,40 @@
              <h1 class="absolute font-serif bottom-80 right-96 text-white text-5xl">Welcome to My video world</h1>
              <h1 class="absolute font-serif bottom-52  right-80 text-white text-5xl">Watch My moments come to life!</h1>
         </div>
-        <div class="w-full bg-[URL(./img/images (40).jfif)] h-screen relative">
-            <img class="w-full h-full absolute" src="/img/images (40).jfif" alt="">
-            <img class="w-full h-full absolute top-96" src="/img/images (40).jfif" alt="">
-          <h1 class="text-5xl text-white text-center font-serif pt-4 absolute right-[500px]">ALL VIDEOS</h1>
-         <div class="w-full grid grid-cols-3 gap-4 p-4 top-24 absolute">
+        <div class="bg-linear-120 from-gray-900 to-green-900 via-pink-800">
+           
+            {{-- main --}}
+          <h1 class="text-5xl text-white text-center font-serif pt-4">ALL VIDEOS</h1>
+         <div class="w-full h-fit grid grid-cols-3 gap-4 p-4">
           @foreach ($video as $vid )
         <div class=" bg-white rounded-md shadow-2xl border p-4 flex flex-col items-center justify-center ">
             {{-- <h1>{{ $vid->title }}</h1> --}}
           <video class=" h-72" controls width="320">
           <source src="{{ asset('storage/'.$vid->video_path) }}"  type="video/mp4">
         </video>
-            {{-- <a href="{{ asset('storage/'.$vid->video_path) }}" download="{{ asset('storage/'.$vid->video_path) }}">Download </a> --}}
+            {{--  --}}
             <div class="flex w-full items-center p-2 justify-between">
                <h1>Rating:  {{ $vid->rating }} </h1>
            <h1>Views: {{ $vid->views }} </h1>
             </div>
-           <a href=" {{ URL('video/show', $vid->id) }}">
-              <h1 class="text-4xl font-serif text-green-900 bottom-0"> {{ $vid->title}}</h1>
-            </a>
-        </div>
-        
-        @endforeach
-</div>
-</div>
-{{-- <div class="h-fit w-full bg-black flex flex-col gap-3" >
-   @foreach ($rating as $vid )
-        <div class=" bg-white rounded-md shadow-2xl border p-4 flex flex-col items-center justify-center ">
-            <h1>{{ $vid->title }}</h1>
-          <video class=" h-72" controls width="320">
-          <source src="{{ asset('storage/'.$vid->video_path) }}"  type="video/mp4">
-        </video>
-            <a href="{{ asset('storage/'.$vid->video_path) }}" download="{{ asset('storage/'.$vid->video_path) }}">Download </a>
             <div class="flex w-full items-center p-2 justify-between">
-               <h1>Rating:  {{ $vid->rating }} </h1>
-           <h1>Views: {{ $vid->views }} </h1>
-            </div>
-           <a href=" {{ URL('video/show', $vid->id) }}">
+            <a href=" {{ URL('video/show', $vid->id) }}">
               <h1 class="text-4xl font-serif text-green-900 bottom-0"> {{ $vid->title}}</h1>
             </a>
+            <a class="text-blue-600"
+             href="{{ asset('storage/'.$vid->video_path) }}" download="{{ asset('storage/'.$vid->video_path) }}">Download </a>
+            </div>
+           
         </div>
-        
         @endforeach
-    </div> --}}
-         {{-- <Footer class=" bg-black w-full felx items-center justify-center bottom-0">
-            <p class="text-2xl font-bold p-10 text-white">2026 &copy; | All Right Reserved</p>
-        </Footer> --}}
+        {{-- @foreach ($videos as $video)
+             <x-video-card :video="$video" />
+        @endforeach --}}
+       
+</div>
+        <Footer class=" bg-black w-full felx items-center justify-center">
+            <p class="text-2xl font-semibold text-center p-10 text-white">2026 | &copy;All Right Reserved</p>
+        </Footer>
+    </div>
 </body>
 </html>

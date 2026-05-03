@@ -12,10 +12,10 @@ class VideoController extends Controller
        $video =  Video::all();
        return view('Video.home',compact('video'));
     }
-    //  public function moreview(){
-    //    $rating =  Video::orderBy('views','desc')->get();
-    //    return view('Video.home',compact('rating'));
-    // }
+     public function MostViewed(){
+       $videos =  Video::orderBy('views','desc')->get();
+       return view('components.video-card',compact('videos'));
+    }
 
     public function show(string $id){
           $video = Video::findOrFail($id);
