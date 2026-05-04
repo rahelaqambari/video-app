@@ -50,5 +50,5 @@
 </script>
 
 </body>
-{{-- nimate-pulse delay-300  bg-linear-120 from-purple-900 to-gray-900 via-pink-900 --}}
+{{-- animate-pulse delay-300  bg-linear-120 from-purple-900 to-gray-900 via-pink-900 --}}
 </html>

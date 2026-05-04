@@ -11,16 +11,16 @@
  <body >
   <nav class="flex items-center justify-between h-24 p-4 w-full bg-black border-b border-white backdrop-blur-2xl border-0 b">
             <img class="h-20 w-24" src="/img/download (25).jfif" alt="">
-            <button class="py-2 px-3 border bg-white text-black font-medium rounded-md font-sans">
+            <button class="py-2 px-3 border bg-white text-green-900 font-medium rounded-md font-sans">
                 <a href="/video/add"> Upload Video </a>
             </button>
         </nav>
         <div class="w-full h-[550px] flex">
              <img class="w-full h-full relative" src="/img/download (24).jfif" alt="">
-             <h1 class="absolute font-serif bottom-80 right-96 text-white text-5xl">Welcome to My video world</h1>
-             <h1 class="absolute font-serif bottom-52  right-80 text-white text-5xl">Watch My moments come to life!</h1>
+             <h1 class="absolute font-serif bottom-80 right-96 text-transparent bg-clip-text text-5xl bg-linear-120 from-blue-600 to-pink-600 via-purple-600">Welcome to My video world</h1>
+             <h1 class="absolute font-serif bottom-52  right-80  text-transparent bg-clip-text text-5xl   bg-linear-120 from-purple-600 to-blue-600 via-pink-600">Watch My moments come to life!</h1>
         </div>
-        <div class="bg-linear-120 from-gray-900 to-green-900 via-pink-800">
+        <div class="bg-linear-120 from-gray-900 to-blue-900 via-pink-950">
            
             {{-- main --}}
           <h1 class="text-5xl text-white text-center font-serif pt-4">ALL VIDEOS</h1>
@@ -51,9 +51,7 @@
         @endforeach --}}
        
 </div>
-        <Footer class=" bg-black w-full felx items-center justify-center">
-            <p class="text-2xl font-semibold text-center p-10 text-white">2026 | &copy;All Right Reserved</p>
-        </Footer>
+       
     </div>
 </body>
 </html>
