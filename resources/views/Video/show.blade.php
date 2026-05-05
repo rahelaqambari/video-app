@@ -9,11 +9,11 @@
         @endif
     </head>
     <body>
-       <div class="w-full h-scree flex flex-col items-center justify-center p-3">
+       <div class="w-full h-screen text-white bg-black flex flex-col items-center justify-center p-3">
          <video class="h-96 w-7/12 " id="myvideo" controls width="320">
           <source src="{{ asset('storage/'.$video->video_path) }}"  type="video/mp4">
         </video>
-           <div class="w-7/12 mt-7 rounded-2xl shadow-2xl p-6 border-0 border-b-2 flex flex-col items-start ">
+           <div class="w-7/12 mt-7  rounded-2xl shadow-2xl p-6 border-0 border-b-2 flex flex-col items-start ">
              <div class="flex items-center justify-between w-full pt-2">
                 <h1 class="">Title:  {{ $video->title }} </h1>
                 <a class="text-xs font-xs text-blue-700" href="{{ asset('storage/'.$video->video_path) }}" download="{{ asset('storage/'.$video->video_path) }}">Download </a>

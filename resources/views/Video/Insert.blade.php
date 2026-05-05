@@ -9,15 +9,15 @@
         @endif
     </head>
     <body>
-        <div class="h-screen w-full  bg-stone-100 bg-cover flex flex-col  items-center justify-center">
-<form enctype="multipart/form-data" action="{{ URL('video/insert') }}" method="POST" class="w-1/2 h-fit p-10 rounded-lg flex bg-white backdrop-blur-2xl flex-col gap-4">
-       <h1 class="text-5xl text-green-900 font-serif pt-5 text-center">Upload New Video</h1>
+        <div class="h-screen w-full  bg-linear-120 from-gray-900 to-blue-900 via-pink-950 bg-cover flex flex-col  items-center justify-center">
+<form enctype="multipart/form-data" action="{{ URL('video/insert') }}" method="POST" class="w-1/2 bg-black h-fit p-10 rounded-lg flex flex-col gap-4 border">
+       <h1 class="text-5xl text-white font-serif pt-5 text-center">Upload New Video</h1>
         @csrf
-            <input class="p-4 border rounded-md"  type="text"  name="title" placeholder=" Title" >
-            <input class="p-4 border rounded-md" type="text" name="description" id="description"  placeholder="description">
-            <input class="p-4 border rounded-md" type="text" name="user_id" id="user_id" placeholder="User Id">
-            <input class="p-4 border rounded-md" type="file" name="video_path" id="video_path" placeholder="video_path">
-            <button class="text-white w-fit mx-auto rounded-md bg-green-900 py-2 px-4" type="submit">Upload</button>
+            <input class="p-4 border border-white text-white rounded-md"  type="text"  name="title" placeholder=" Title" >
+            <input class="p-4 border border-white text-white rounded-md" type="text" name="description" id="description"  placeholder="description">
+            <input class="p-4 border border-white text-white rounded-md" type="text" name="user_id" id="user_id" placeholder="User Id">
+            <input class="p-4 border border-white text-white rounded-md" type="file" name="video_path" id="video_path" placeholder="video_path">
+            <button class="text-white w-fit mx-auto rounded-md  bg-linear-120 from-gray-900 to-blue-900 via-pink-950 bg-cover py-2 px-4" type="submit">Upload</button>
     </form>
     </div>
 </body>

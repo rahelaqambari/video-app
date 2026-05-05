@@ -10,7 +10,7 @@
   </head>
  <body >
   <nav class="flex items-center justify-between h-24 p-4 w-full bg-black border-b border-white backdrop-blur-2xl border-0 b">
-            <img class="h-20 w-24" src="/img/download (25).jfif" alt="">
+            <img class="h-20 p-1 w-20" src="/img/logo (2).png" alt="">
             <button class="py-2 px-3 border bg-white text-green-900 font-medium rounded-md font-sans">
                 <a href="/video/add"> Upload Video </a>
             </button>
@@ -43,48 +43,42 @@
             <a class="text-blue-600"
              href="{{ asset('storage/'.$vid->video_path) }}" download="{{ asset('storage/'.$vid->video_path) }}">Download </a>
             </div>
-           
         </div>
         @endforeach
+        
         {{-- @foreach ($videos as $video)
              <x-video-card :video="$video" />
-        @endforeach --}}
-       
+        @endforeach --}} 
 </div>
-        <div className="h-fit w-full pb-20 flex justify-center items-center">
-         <div className="flex flex-col h-[70%] w-[90%] bg-amber-700 ">
-        <div className="h-full w-full bg-amber-700 p-20 flex lg:flex-row flex-col justify-center items-center">
-        <div className="w-[30%] h-full lg:border-r border-white  flex flex-col gap-2 text-white items-center justify-center">
-             <h1 className="text-2xl font-medium cursor-pointer">Home</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Services</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Blog</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Contact</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">About</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Weather</h1>
+<div class="w-full flex items-center justify-center h-11">
+            <button class="py-2 px-3 border bg-white text-green-900 font-medium rounded-md font-sans">
+                <a href="/video/most">Most Viewed</a>
+            </button>
         </div>
-         <div className="w-[40%] h-full lg:border-r  border-white  flex flex-col gap-2 text-white items-center justify-center">
-          <div className="h-full w=ful flex gap-3 cou">
-          < Instagram className="cursor-pointer"/>
-          < Facebook className="cursor-pointer"/>
-          < TwitterIcon className="cursor-pointer"/>
-          < Youtube className="cursor-pointer"/>
-          < LinkedinIcon className="cursor-pointer"/>
-            </div>  
-           <h1 className=" lg:text-4xl  text-center text-2xl py-10 font-medium text-">Sharifi Constraction Company</h1>
-           <Button className="text-amber-700 hover:bg-amber-700 hover:text-white hover:border bg-white hover:shadow-2xl shadow-white">Follow Now</Button>
+        <div class="h-fit w-full py-3 bg-transparent flex justify-center items-center">
+         <div class="flex flex-col h-[70%] w-[98%] py-2 bg-black">
+             <h1 class=" lg:text-4xl  text-center text-2xl py-4 font-medium text-white font-serif">Video World</h1>
+        <div class="h-full w-full py-4 flex lg:flex-row flex-col justify-center items-center">
+        <div class="w-[30%] h-full lg:border-r border-white  flex flex-col gap-2 text-white items-center justify-center">
+             <h1 class="text-2xl font-medium cursor-pointer">Follow Us On </h1>
+             <h1 class="text-2xl font-light cursor-pointer">Instagram</h1>
+             <h1 class="text-2xl font-light cursor-pointer">Feacbook</h1>
+             <h1 class="text-2xl font-light cursor-pointer">Linkden</h1>
         </div>
-         <div className="lg:w-[30%] w-full h-full  flex flex-col gap-2 text-white items-center justify-center">
-            <h1 className="text-3xl font-light">Our Useful Linkes</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">History</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Our Team</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Privacy Policy</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Services Offered</h1>
-             <h1 className="text-2xl font-medium cursor-pointer">Product Catalog</h1>
+         <div class="w-[30%] h-full   flex flex-col gap-2 text-white items-center justify-center">
+           <h1 class=" lg:text-4xl  text-center text-2xl py-4 px-8 font-medium text-white font-serif">I Create. You Watch. Let's Connect</h1>
+           <button class="py-2 px-3 border bg-white text-green-900 font-medium rounded-md font-sans">Follow Now</button>
+        </div>
+         
+         <div class="lg:w-[30%] w-full h-full lg:border-l border-white  flex flex-col gap-2 text-white items-center justify-center">
+            <h1 class="text-3xl font-medium cursor-pointer">Useful Linkes</h1>
+             <h1 class="text-2xl font-light cursor-pointer">Our Team</h1>
+             <h1 class="text-2xl font-light cursor-pointer">Privacy Policy</h1>
+             <h1 class="text-2xl font-light cursor-pointer">Services Offered</h1>
         </div>
         </div>
-        <div className="flex justify-center items-center w-full text-white ">
-        <Copyright size={20} />
-         <h1 className="text-lg">On 2025 by Rahela Qambari all rights reserved.</h1>
+        <div class="flex justify-center items-center w-full text-white ">
+         <h1 class="text-lg font-sans pb-2">2025 &copy; by Rahela Qambari all rights reserved.</h1>
         </div>
         </div>
        </div>
